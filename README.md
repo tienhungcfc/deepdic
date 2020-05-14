@@ -32,12 +32,21 @@ alias Aricles art
 ```
 
 #### var - Khai báo
-> var **Tên biến**: *kiểu giá trị*
+> var **Tên biến**: *Giá trị*
+- Tên biến: az_09, bắt đầu bằng chữ cái.
+- Có thể gán tùy ý các giá trị với các kiểu khác nhau cho biến cho biến, ví dụ: var x = 0. sau đó x = true.
 ```
 var x1 = {}//Kiểu json, có thể mở rộng thuộc tính bất kỳ
 var x2 = []//Kiểu mảng, 
-var x3 = 0
-var x4 = true
-var x5 = now()//Kiểu datetime
+var x3 = 0// Kiểu số
+var x4 = true//Kiểu bool
+var x5 = date()//Kiểu datetime
 var x6 = ''//String
+
+// String nhiều dòng
+var x7 = `
+line 1
+line 2
+`
+
 ```
