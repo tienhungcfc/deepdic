@@ -22,9 +22,14 @@ ID | Title | Desc | Content
 
 ## Ngữ pháp
 Let'go
+
 Trong c#:
 ```
 var dd = new DeepDoc()
+dd["a"] = null;
+dd["b"] = null;
+dd["fn"]= (int a, int b) => { return a + b;}
+
 ```
 
 
