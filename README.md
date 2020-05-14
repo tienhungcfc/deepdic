@@ -26,13 +26,23 @@ Let'go
 Trong c#:
 ```
 var dd = new DeepDoc()
-dd["a"] = null;
-dd["b"] = null;
-dd["fn"]= (int a, int b) => { return a + b;}
+dd["x0"] = null; //any, bool, string, int, null... 
+dd["fnName"]= (int a, int b) => { return a + b;}
 dd.Inner = @"
-    a = 1
+    data = {}
+    x = "chuỗi 1"
+    data.a = x // kiểu string
 "
 
 ```
+
+chèn thêm code
+```
+dd.append = @"
+    data.a  = 1 // chuyển thành kiểu số
+    data.a += 1 // output: 2
+"
+```
+
 
 
