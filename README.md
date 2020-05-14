@@ -25,6 +25,7 @@ ID | Title | Desc | Content
 
 Bắt đầu
 #### alias 
+> alias [TableName] {aliasName}
 ``` 
 alias Categories cate
 alias Aricles art
