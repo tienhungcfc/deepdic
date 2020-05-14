@@ -1,10 +1,17 @@
 Bảng mẫu
 
-Table1
+- **Categories**
 
 ID | Title | Desc
 ------------ | ------------- | -------------
-ID 1 | Title 1 | Dec 1
-ID 2 | Title 2 | Dec 2
+1001 | Danh mục 1 | Mô tả danh mục 1
+1002 | Danh mục 2 | Mô tả danh mục 2
+
+- **Aricles**
+
+ID | Title | Desc | Content
+------------ | ------------- | ------------- | ---------
+2001 | Bài viết 1 | Mô tả Bài viết 1 | Nội dung 1
+2002 | Bài viết 2 | Mô tả Bài viết 2 | Nội dung 2
 
 
