@@ -24,10 +24,20 @@ ID | Title | Desc | Content
 *Mỗi câu lệnh bắt đầu từ đầu dòng, có thể bao gồm 1 hoặc nhiều dòng*
 
 Bắt đầu
-#### alias 
+#### alias - Bí danh
 > alias **TableName** *aliasName*
 ``` 
 alias Categories cate
 alias Aricles art
 ```
 
+#### var - Khai báo
+> var **Tên biến**: *kiểu giá trị*
+```
+var x1 = {}//Kiểu json, có thể mở rộng thuộc tính bất kỳ
+var x2 = []//Kiểu mảng, 
+var x3 = 0
+var x4 = true
+var x5 = now()//Kiểu datetime
+var x6 = ''//String
+```
