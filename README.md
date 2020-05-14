@@ -21,7 +21,7 @@ ID | Title | Desc | Content
 
 
 ## Ngữ pháp
-*Mỗi câu lệnh bắt đầu từ đầu dòng, có thể bao gồm 1 hoặc nhiều dòng*
+Trong c#:
 
 Bắt đầu
 #### alias - Bí danh
