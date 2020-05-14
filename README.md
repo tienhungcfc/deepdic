@@ -23,26 +23,44 @@ ID | Title | Desc | Content
 ## Ngữ pháp
 Let'go
 
-Trong c#:
+#### Khai báo mới trong c#:
 ```
 var dd = new DeepDoc()
-dd["**x0**"] = null; //any, bool, string, int, null... 
+dd["x0"] = null; //any, bool, string, int, null... 
 dd["fnName"]= (int a, int b) => { return a + b;}
 dd.Inner = @"
     data = {}
     x = "chuỗi 1"
-    data.a = x // kiểu string
+    data.a = x // output {"a":"chuỗi 1"}
 ";
 
 ```
 
-chèn thêm code
+#### Chèn thêm code
 ```
-dd.append = @"
+dd.Append = @"
     data.a  = 1 // chuyển thành kiểu số
-    data.a += 1 // output: 2
+    data.a += 1 // output: {"a":2}
+    
+    a = 0
+    
+    x = 0 //output: 0
+    x.z = 0 //output: {"z":0}
 ";
 ```
+
+#### Chạy
+```
+dd.Run();
+```
+
+#### Truy vấn kết quả
+```
+var data = dd["data"]; //data kiểu dictionary
+var a = dd["a"]; // a kiểu int
+
+
+
 
 
 
