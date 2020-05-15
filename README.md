@@ -39,6 +39,7 @@ dd.Inner = @"
 #### Bắt đầu
 ```
 dd.Append = @"
+//Mỗi câu lệnh sẽ bắt đầu bằng dòng mới, có thể gồm 1 hay nhiều dòng
     data.a  = 1 // chuyển thành kiểu số
     data.a += 1 // output: {"a":2}
     a = 0
@@ -56,7 +57,9 @@ var z = dd["x"]["z]"; //phải
 #### Truy vấn Sql
 ```
 dd.Append = @"
-   x = from cate
+   x = cate // danh sách categories
+   x = cate[0] // x giờ là phần từ đầu tiên của categories hoặc null
+   x = cate[.] // x giờ là phần từ cuối của categories hoặc null
 ";
 ```
 
