@@ -36,18 +36,30 @@ dd.Inner = @"
 
 ```
 
-#### Chèn thêm code
+#### Bắt đầu
 ```
 dd.Append = @"
     data.a  = 1 // chuyển thành kiểu số
     data.a += 1 // output: {"a":2}
-    
     a = 0
-    
     x = 0 //output: 0
     x.z = 0 //output: {"z":0}
 ";
+
+var data = dd["data"]; //data kiểu dictionary
+var a = dd["a"]; //output: 0,  a kiểu int
+var z = dd["x"]; 
+//or
+var z = dd["x"]["z]"; //phải  
 ```
+
+#### Truy vấn Sql
+```
+dd.Append = @"
+   x = from cate
+";
+```
+
 
 #### Chạy
 ```
@@ -56,9 +68,9 @@ dd.Run();
 
 #### Truy vấn kết quả
 ```
-var data = dd["data"]; //data kiểu dictionary
-var a = dd["a"]; // a kiểu int
 
+
+```
 
 
 
