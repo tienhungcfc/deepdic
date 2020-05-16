@@ -40,12 +40,14 @@ dd.Inner = @"
 ```
 dd.Append = @"
 //Mỗi câu lệnh sẽ bắt đầu bằng dòng mới, có thể gồm 1 hay nhiều dòng
-    data.a  = 1 // chuyển thành kiểu số
-    data.a += 1 // output: {"a":2}
-    data.a = 'Tôi là tôi'// output: {"a":"Tôi là tôi"}
+    data.a  = 1             // chuyển thành kiểu số
+    data.a += 1             // output: {"a":2}
+    data.a = 'Tôi là tôi'   // output: {"a":"Tôi là tôi"}
     a = 0
-    x = 0 //output: 0
-    x.z = 0 //output: {"z":0}
+    x = 0                   //output: 0
+    x.z = 0                 //output: {"z":0}
+    z.v = 'string'          //output: {"v": "sring"}
+    z.v = `i'm hung`        //output: {"v": "i'm hung"}
 ";
 
 var data = dd["data"]; //data kiểu dictionary
@@ -78,6 +80,10 @@ dd.Append = @"
                    or c.ID not in arts.Channel      // trình biên dịch sẽ soạn thành: c.ID not in (select Channel from  articles)
                    or c.ID not in arr(arts.Chanel)  // arr() là hàm dựng sẵn,sẽ soạn thành: (c.ID != Id1 or c.ID != Id2 ...) 
              order by c.ID
+   
+   x.cates = sqlcmd(`select * from [Categories] where ID => {0} or Title like N'%{1}%' `, 0, 'a') // thực thi câu lệnh sql trực tiếp
+   
+   x.cates = 
 ";
 ```
 #### Toán tử
