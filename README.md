@@ -58,18 +58,25 @@ var z = dd["x"]["z]"; //phải
 #### Với bảng
 ```
 dd.Append = @"
+   alias Categories cate //Gán bí danh cho bảng sử dụng mẫu câu: alias [TEN_BANG] ten
+   alias Articles arts
    x = {}
    x.categories = cate // danh sách categories, dữ liệu đc đọc từ sql, chuyển ngay bào bộ nhớ của c#
    x.first = cate[0] // x giờ là phần từ đầu tiên của categories hoặc null
    x.last = cate[.] // x giờ là phần từ cuối của categories hoặc null
    
    x.filter = from cate 
-              where cate.ID > 0 and cate.Parent =0  
-              order by [Order], [ID] desc
-   
+              where cate.ID >= 0 and cate.Parent == 0  //xem dánh sách toán tử cho câu lệnh from ... where 
+              order by [Order], [ID] desc // cú pháp như sql, bản chất lst.Order[Desc]By().thenBy(..)
+              
+   x.filter[0].arts = arts //mở rộng 1 thuộc tích cho thành phần đầu tiên của filter
 ";
 ```
+#### Toán tử
+- Các phép tính cơ bản: Cộng(+), trừ(-), nhân(\*), chia(/), mũ(^)
+- Các phép tính logic: and(và), or(hoặc), ==(bằng), !=(khác), > (lớn hơn), <(nhỏ hơn)
 
+#### Các hàm dựng sẵn
 
 #### Chạy
 ```
