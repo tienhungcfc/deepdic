@@ -74,10 +74,15 @@ dd.Append = @"
 ```
 #### Toán tử
 - Các phép tính cơ bản: Cộng(+), trừ(-), nhân(\*), chia(/), mũ(^)
-- Các phép tính logic: and(và), or(hoặc), ==(bằng), !=(khác), > (lớn hơn), <(nhỏ hơn)
+- Các phép tính logic: Và(and), Hoặc(or), Bằng(==), Khác(!=), Lớn hơn(>), Nhỏ hơn(>),Lớn hơn bằng(>=), Nhỏ hơn bằng(<=)
 
 #### Các hàm dựng sẵn
-
+- close: tạo bản sao
+```
+    x = {a:1}
+    y = clone(x)
+    x.a = 2 // output: x = {a:2}, y = {a:1}
+```
 #### Chạy
 ```
 dd.Run();
