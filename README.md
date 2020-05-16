@@ -61,15 +61,22 @@ dd.Append = @"
    alias Categories cate //Gán bí danh cho bảng sử dụng mẫu câu: alias [TEN_BANG] ten
    alias Articles arts
    x = {}
-   x.categories = cate // danh sách categories, dữ liệu đc đọc từ sql, chuyển ngay bào bộ nhớ của c#
-   x.first = cate[0] // x giờ là phần từ đầu tiên của categories hoặc null
-   x.last = cate[.] // x giờ là phần từ cuối của categories hoặc null
+   x.categories = cate      // danh sách categories, dữ liệu đc đọc từ sql, chuyển ngay bào bộ nhớ của c#, một dạng cache
+   x.first = cate[0]        // x giờ là phần từ đầu tiên của categories hoặc null
+   x.last = cate[.]         // x giờ là phần từ cuối của categories hoặc null
    
-   x.filter = from cate 
-              where cate.ID >= 0 and cate.Parent == 0  //xem dánh sách toán tử cho câu lệnh from ... where 
-              order by [Order], [ID] desc // cú pháp như sql, bản chất lst.Order[Desc]By().thenBy(..)
+   x.filter = from c in  cate 
+              where c.ID >= 0                   //xem dánh sách toán tử cho câu lệnh from ... where 
+                    and c.Parent == 0
+              order by c.Order, c.ID desc       // cú pháp như sql, bản chất lst.Order[Desc]By().thenBy(..)
               
    x.filter[0].arts = arts //mở rộng 1 thuộc tích cho thành phần đầu tiên của filter
+   
+   x.cates = sql c cate                         // đọc trực tiếp từ db
+             where c.ID >= 0                    // tương tự như câu lệnh "from", chú ý
+                   or c.ID not in arts.Channel  // trình biên dịch sẽ soạn thành: c.ID not in (select Channel from  articles)
+                   or c.ID not in [arts.Chanel] // sẽ soạn thành: (c.ID != Id1 or c.ID != Id2 ...) 
+             order by c.ID
 ";
 ```
 #### Toán tử
@@ -81,8 +88,15 @@ dd.Append = @"
 ```
     x = {a:1}
     y = clone(x)
-    x.a = 2 // output: x = {a:2}, y = {a:1}
+    x.a = 2 // output: x = {"a":2}, y = {"a":1}
 ```
+- delete: xóa 
+```
+    x = {a:1, b:2}
+    delete x.a // output: x = {"b":2}
+    
+```
+
 #### Chạy
 ```
 dd.Run();
