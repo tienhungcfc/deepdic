@@ -72,10 +72,11 @@ dd.Append = @"
               
    x.filter[0].arts = arts //mở rộng 1 thuộc tích cho thành phần đầu tiên của filter
    
-   x.cates = sql c cate                         // đọc trực tiếp từ db
-             where c.ID >= 0                    // tương tự như câu lệnh "from", chú ý
-                   or c.ID not in arts.Channel  // trình biên dịch sẽ soạn thành: c.ID not in (select Channel from  articles)
-                   or c.ID not in [arts.Chanel] // sẽ soạn thành: (c.ID != Id1 or c.ID != Id2 ...) 
+   x.cates = sql c cate                             // đọc trực tiếp từ db
+             where c.ID >= 0                        // tương tự như câu lệnh "from", chú ý
+                   or c.ID not null
+                   or c.ID not in arts.Channel      // trình biên dịch sẽ soạn thành: c.ID not in (select Channel from  articles)
+                   or c.ID not in arr(arts.Chanel)  // arr() là hàm dựng sẵn,sẽ soạn thành: (c.ID != Id1 or c.ID != Id2 ...) 
              order by c.ID
 ";
 ```
@@ -94,7 +95,14 @@ dd.Append = @"
 ```
     x = {a:1, b:2}
     delete x.a // output: x = {"b":2}
-    
+```
+- arr: tạo mảng giá trị từ thuộc tính
+```
+    x = arr[arts.Channel] //output: x = ["1","1,2",...]
+    ... from c in cate
+            where c.ID in  arr[arts.Channel] // sẽ soạn thành: ["1","1,2",...].any(x => x == c.ID) trong c#
+    ... sql c in cate
+            where c.ID in  arr[arts.Channel] // sẽ soạn thành: (",1," like '%,'+ cast(c.ID as nvarchar) +',%' or ... ) trong sql
 ```
 
 #### Chạy
