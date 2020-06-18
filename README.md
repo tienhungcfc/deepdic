@@ -1,4 +1,3 @@
 
 xem file 
-http://github.com - automatic!
-[GitHub](http://github.com)
+[devPlan](https://github.com/tienhungcfc/deepdoc/blob/master/devPlan.md)
