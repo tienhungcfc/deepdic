@@ -1,2 +1,3 @@
 
-### Thuộc tính đánh dấu khai báo
+# Thuộc tính đánh dấu khai báo truy vấn
+## 
